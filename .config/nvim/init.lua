@@ -16,19 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Loads some basic plugins
-local plugins = require("init_plugins")
-
--- Treesitter
-local treesitter = require("treesitter_conf")
-table.insert(plugins, treesitter)
-
--- Telescope
-local telescope = require("telescope_conf")
-table.insert(plugins, telescope)
-
--- LSP config
-local lspconf = require("lspconf_conf")
-table.insert(plugins, lspconf)
+local plugins = require("plugins.init_plugins")
 
 -- Set the lua/plugins/ as the import dir for additional plugins
 table.insert(plugins, { import = "plugins" })
