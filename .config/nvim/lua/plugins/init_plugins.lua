@@ -195,17 +195,16 @@ return {
   },
 
   -- Add indentation guides even on blank lines
-  {
-    "lukas-reineke/indent-blankline.nvim",
+  -- {
+    -- "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
-    main = "ibl",
-    opts = {},
-    config = function()
-      require("ibl").setup()
-    end
-  },
-
+    -- main = "ibl",
+    -- opts = {},
+    -- config = function()
+      -- require("ibl").setup()
+    -- end
+  -- },
   -- Add easy commenting
   { "numToStr/Comment.nvim", opts = {} },
 
