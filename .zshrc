@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,13 +51,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -65,14 +58,6 @@ else
   export EDITOR='nvim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 # Aliases
 alias zshc="nvim ~/.zshrc"
 alias nc="nvim ~/.config/nvim/init.lua"
@@ -83,18 +68,21 @@ alias s="eza --group-directories-first --icons"
 alias gl="git log --all --decorate --graph"
 alias n="nvim"
 alias ns="eza --oneline --only-files | fzf --reverse --preview \"cat {}\" | xargs -r nvim"
+alias cat="bat --color=auto"
+alias find="fd --color=auto"
+alias grep="rg --color=auto"
 alias dotfiles='/usr/bin/env git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Bind <C-z> to gf
 fg-CTRL-z () {
   fg
 }
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
+zle -N fg-CTRL-z
+bindkey '^Z' fg-CTRL-z
 
 # Adding to path
-# TODO: Change to the better zsh way
 path+=('/home/martinw/bin')
-
 
 eval "$(setxkbmap -layout us,cz -variant ,ucw -option grp:switch,caps:swapescape)"
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
