@@ -13,14 +13,13 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
--- Sourcing file
+-- Source file
 vim.keymap.set("n", "<leader><leader>x", "<Cmd>source %<CR>", { desc = "source current file" })
 
--- Opening floating diagnostic window
+-- Open floating diagnostic window
 vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>", { desc = "Open floating diagnostic window", silent = true })
 
--- Terminal
--- Changes the crazy default terminal escape keymap to esc
+-- Change the crazy default terminal escape keymap to esc
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { silent = true })
 
 -- File management keybindings
