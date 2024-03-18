@@ -73,6 +73,7 @@ return {
       end
 
       local builtin = require("telescope.builtin")
+      local actions = require("telescope.actions")
 
       -- See `:help telescope.builtin`
       vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
@@ -88,6 +89,13 @@ return {
       vim.keymap.set("n", "<leader>sc", builtin.git_commits, { desc = "[s]earch [g]it [c]ommits" })
       vim.keymap.set("n", "<leader>sbc", builtin.git_bcommits, { desc = "[s]earch [b]uffer [g]it [c]ommits" })
       vim.keymap.set("n", "<leader>sb", builtin.git_branches, { desc = "[s]earch [g]it [b]ranches" })
+      vim.keymap.set("n", "<leader>sj", builtin.jumplist, { desc = "[s]earch [j]umplist"})
+
+    local send_to_qflsit = function ()
+        local bufnr = vim.api.nvim_get_current_buf()
+        actions.smart_send_to_qflist.pre(bufnr)
+    end
+      vim.keymap.set("n", "<C-q>", send_to_qflsit, { desc = "[s]earch [j]umplist"})
     end
   },
 }
